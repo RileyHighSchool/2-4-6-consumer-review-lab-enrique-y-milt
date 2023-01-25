@@ -161,5 +161,19 @@ public class Review {
     } else {
       return randomNegativeAdj();
     }
+    public static double totalSentiment(String filename){
+
+      String costumerReview = textToString(filename);
+      
+      double totalVal = 0;
+
+      while (totalVal > totalSentiment){
+        textToString();
+      }
+        
+      
+
+    }
+    }
   }
 }
