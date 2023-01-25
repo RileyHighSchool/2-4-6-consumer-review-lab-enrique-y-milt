@@ -161,19 +161,58 @@ public class Review {
     } else {
       return randomNegativeAdj();
     }
+
+  }
     public static double totalSentiment(String filename){
 
       String costumerReview = textToString(filename);
       
-      double totalVal = 0;
+      double totalVal = 0.0;
 
-      while (totalVal > totalSentiment){
-        textToString();
+      while (costumerReview.length() > 0){
+        int space = costumerReview.indexOf("");
+
+        String word = costumerReview.substring(0, space);
+
+        costumerReview = costumerReview.substring(space+1);
+
+        totalVal += sentimentVal(removePunctuation(costumerReview));
+
+
       }
+        return totalVal;
+
+
         
+      }
+
+      public static int starRating(String fileName){
+        double totalSentiment = totalSentiment(fileName);
+        
+        if (totalSentiment < 15){
+        
+        return 4;
+        }
+        else if (totalSentiment<10){
+          return 3;
+        }
+        else if (totalSentiment<5){
+          return 2;
+        }
+        else if (totalSentiment<0){
+          return 1;
+        }
+        else{
+          return 0;
+        }
+
+
+
+      }
       
 
-    }
-    }
-  }
+    
+  
+
+  
 }
