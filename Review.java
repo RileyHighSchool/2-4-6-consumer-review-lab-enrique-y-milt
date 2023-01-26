@@ -37,7 +37,7 @@ public class Review {
       Scanner input = new Scanner(new File("positiveAdjectives.txt"));
       while(input.hasNextLine()){
         String temp = input.nextLine().trim();
-        System.out.println(temp);
+
         posAdjectives.add(temp);
       }
       input.close();
@@ -206,6 +206,16 @@ public class Review {
           return 0;
         }
 
+
+
+      }
+      public static String fakeReview(String fileName){
+
+        String costumerReview = textToString(fileName);
+
+        while
+
+        
 
 
       }
