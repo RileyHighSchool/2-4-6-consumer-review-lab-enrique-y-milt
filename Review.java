@@ -213,8 +213,9 @@ public class Review {
 
         String costumerReview = textToString(fileName);
 
-        while
+        while (costumerReview.length() > 0){
 
+        int space = costumerReview.indexOf("");
         
 
 
