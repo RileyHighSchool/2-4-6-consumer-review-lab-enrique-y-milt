@@ -169,20 +169,20 @@ public class Review {
       
       double totalVal = 0.0;
 
-      while (costumerReview.length() > 0){
-        int space = costumerReview.indexOf("");
+      while (costumerReview.length() > 0 && costumerReview.indexOf(" ") != -1){
+        int space = costumerReview.indexOf(" ");
 
         String word = costumerReview.substring(0, space);
 
         costumerReview = costumerReview.substring(space+1);
 
-        totalVal += sentimentVal(removePunctuation(costumerReview));
+        totalVal += sentimentVal(removePunctuation(word));
 
 
       }
+      totalVal += sentimentVal(removePunctuation(costumerReview));
+
         return totalVal;
-
-
         
       }
 
@@ -209,20 +209,39 @@ public class Review {
 
 
       }
-      public static String fakeReview(String fileName){
+      public static String fakeReview(String fileName, boolean negative){
 
-        String costumerReview = textToString(fileName);
+        String oldReview = textToString(fileName);
+        String newReview = "";
 
-        while (costumerReview.length() > 0){
+        while (oldReview.length() > 0 && oldReview.indexOf("*") !=-1){
 
-        int space = costumerReview.indexOf("");
+        int star = oldReview.indexOf("*");
+
+        int space = oldReview.indexOf(" ", star);
+
+        newReview += oldReview.substring(0, star);
+        
+        
+        oldReview = oldReview.substring(space+1 );
+
+        if (negative){
+          newReview += randomPositiveAdj() + " ";
+        }
+          else {
+            newReview += randomNegativeAdj() + " ";
+          }
+        }
         
 
 
-      }
       
 
-    
+      newReview += oldReview;
+      return newReview;
+      
+
+      }
   
 
   
