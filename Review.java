@@ -242,6 +242,21 @@ public class Review {
       
 
       }
+      public static String newReview(String fileName, boolean negative){
+
+        String fartReview = textToString(fileName);
+        String newFartReview = "";
+
+        while( fartReview.length() > 0 && fartReview.indexOf("*") !=-1){
+          int star = fartReview.indexOf("*");
+          int space = fartReview.indexOf("", star);
+
+          newFartReview += fartReview.substring(0, star);
+          fartReview = fartReview.substring(space+1);
+        }
+
+
+      }
   
 
   
