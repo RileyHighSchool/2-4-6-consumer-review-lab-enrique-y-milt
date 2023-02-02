@@ -246,6 +246,7 @@ public class Review {
 
         String fartReview = textToString(fileName);
         String newFartReview = "";
+        
 
         while( fartReview.length() > 0 && fartReview.indexOf("*") !=-1){
           int star = fartReview.indexOf("*");
@@ -253,7 +254,19 @@ public class Review {
 
           newFartReview += fartReview.substring(0, star);
           fartReview = fartReview.substring(space+1);
+
+
+          if (negative){
+           newFartReview += randomPositiveAdj() + " ";
+          }
+            else {
+              newFartReview += randomNegativeAdj() ;
+            }
+          
+
         }
+        newFartReview += fartReview;
+        return newFartReview;
 
 
       }
